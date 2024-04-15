@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+    <div class="row mx-5 px-4 mt-5 pt-5">
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-image: url(); background-blend-mode: darken; opacity: 60%">
+                <br class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">{{ single_post.title }}</strong>
+                    <div class="mb-1 text-body-secondary">{{ single_post.created_at | timesince }}</div>
+                    <div class="mb-1 text-body-secondary">{{ single_post.author }}</div>
+                    <p class="card-text mb-auto">{{ single_post.short_description }}</p></br>
+                    <div class="w-75 p-3"><img src="{{ single_post.blog_image.url }}" class="img-fluid w-60" alt="Responsive image"></div>
+                    <p class="card-text mb-auto">{{ single_post.blog_body }}</p>
+                </div>
+            </div>
+    </div>
+
+
+{% endblock %}

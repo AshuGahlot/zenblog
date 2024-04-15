@@ -1,0 +1,70 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+      
+    <!-- Main content start -->
+    {% for post in featured_post %}
+    {% if forloop.first %}
+    <main class="container mt-5 pt-5">
+        <div class="p-4 p-md-5 mb-4 text-white rounded  bg-body-secondary " style="background-image: url({{ post.blog_image.url }}); background-blend-mode: multiply; opacity: 60% ">
+          <div class="col-lg-6 px-0">
+            <h1 class="display-4 fst-italic"><a href="{% url 'blogs' post.slug %}">{{ post.title }}</a></h1>
+            <p class="lead my-3">{{ post.short_description | truncatewords:40 }}</p>
+            <p class="lead mb-0"><a href="#" class="text-body-primary fw-bold">Continue reading...</a></p>
+          </div>
+        </div>
+    </main> 
+    {% endif %}
+    {% endfor %}
+
+        <!-- Divider-->
+        <hr class="my-4" />
+
+
+    <!-- Featured posts  -->
+     <h1 class="mx-5 px-5 text-uppercase text-success">Featured Posts</h1>
+    <div class="row mx-5 px-4">
+        <!-- for loop start  -->
+        {% for post in featured_post %}
+        {% if not forloop.first %}
+        <div class="col-md-6"> 
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-image: url({{ post.blog_image.url }}); background-blend-mode: darken; opacity: 60%">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis"><a href="{% url 'blogs' post.slug %}">{{ post.title }}</a></strong>
+                    <div class="mb-1 text-body-secondary">{{ post.created_at | timesince }}</div>
+                    <div class="mb-1 text-body-secondary">{{ post.author }}</div>
+                    <p class="card-text mb-auto">{{ post.short_description | truncatewords:30}}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %} 
+        <!-- forloop end  -->
+    </div>
+    <!-- featured post end  -->
+
+    <!-- Divider-->
+    <hr class="my-4" />
+
+<!-- Recent Articles  -->
+ <h1 class="mx-5 px-5 text-uppercase text-success">Recent Articles</h1>
+    <div class="row mx-5 px-4">
+        {% for post in posts %}
+        <div class="col-md-6"> 
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-image: url({{ post.blog_image.url }}); background-blend-mode: darken; opacity: 60%">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis"><a href="{% url 'blogs' post.slug %}">{{ post.title }}</a></strong>
+                    <div class="mb-1 text-body-secondary">{{ post.created_at | timesince }}</div>
+                    <div class="mb-1 text-body-secondary">{{ post.author }}</div>
+                    <p class="card-text mb-auto">{{ post.short_description | truncatewords:30}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+   
