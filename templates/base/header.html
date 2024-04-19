@@ -19,8 +19,7 @@
 
    
      <!-- Favicons -->
-     <!-- <link href="{% static 'assets/img/favicon.png' %}" rel="icon"> -->
-     <!-- <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> -->
+     <link href="{% static 'assets/img/logo.png' %}" rel="icon"> 
    
      <!-- Google Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,14 +36,7 @@
      <!-- Template Main CSS Files -->
      <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
      <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-   
-     <!-- =======================================================
-     * Template Name: ZenBlog
-     * Updated: Jan 29 2024 with Bootstrap v5.3.2
-     * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
-     * Author: BootstrapMade.com
-     * License: https:///bootstrapmade.com/license/
-     ======================================================== -->
+  
    </head>
    
    <body>
@@ -62,21 +54,11 @@
          <nav id="navbar" class="navbar">
            <ul>
              <li><a href="{% url 'home' %}">Home</a></li>
-             <li class="dropdown"><a href=""><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+             <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                <ul>
                  {% for cat in categories %}
                  <li><a href="{% url 'post_by_category' cat.id %}">{{ cat.category_name }}</a></li>
                  {% endfor %}
-                 <!-- <li><a href="#">Drop Down 1</a></li> -->
-                 <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                   <ul>
-                     <li><a href="#">Deep Drop Down 1</a></li>
-                     <li><a href="#">Deep Drop Down 2</a></li>
-                     <li><a href="#">Deep Drop Down 3</a></li>
-                     <li><a href="#">Deep Drop Down 4</a></li>
-                     <li><a href="#">Deep Drop Down 5</a></li>
-                   </ul>
-                 </li> -->
                </ul> 
              </li>
    
@@ -84,20 +66,13 @@
              <li><a href="{% url 'contact' %}">Contact</a></li>
            </ul>
          </nav>
-         <!-- .navbar -->
+         <!-- navbar -->
    
+         <!-- Search Box -->
          <div class="position-relative">
-           <!-- <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-           <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-           <a href="#" class="mx-2"><span class="bi-instagram"></span></a> -->
-
-
-           
-           <!-- Search Box -->
            <form class="d-flex" role="search" action="{% url 'search' %}" method="GET">
              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
              <button class="btn bi-search btn btn-outline-success" type="submit"></button>
-             <!-- <button class="btn btn-outline-success me-4" type="submit">Search</button> -->
             </form>
           </div>
             <!-- Search Box end -->
@@ -109,21 +84,8 @@
               {% else %}
               <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
               <span class="iconoir-profile-circle">{{ user }}</span>
-              <!-- <span><a class="iconoir-profile-circle" href="{% url 'logout' %}"><span style="font-size: 10px;">Logout</span></a></span> -->
               {% endif %}
             </div>
-            
-
-            <!-- <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-            <i class="bi bi-list mobile-nav-toggle"></i> -->
-           <!-- ======= Search Form ======= -->
-           <!-- <div class="search-form-wrap js-search-form-wrap">
-             <form action="{% url 'search' %}" method="GET" class="search-form">
-               <span class="icon bi-search"></span>
-               <input type="text" placeholder="Search" class="form-control" name="keyword">
-               <button class="btn js-search-close"><span class="bi-x"></span></button>
-             </form>
-           </div> -->
            <!-- End Search Form -->
        </div>
      </header><!-- End Header -->
